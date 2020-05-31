@@ -45,14 +45,14 @@ Analysis results were as follows:
 - Assuming that potential retirees are 54-68 years-old (birthdates between 1965-12-31 and 1952-01-01) and that they have worked 31-35 years for the company (hire dates between 1988-12-31 and 1985-01-01), then the number of individuals retiring is 108,958.
 - If the age range is narrowed to 64-68 years-old (birthdates between 1955-12-31 and 1952-01-01), then the number of individuals retiring is 41,380.
 - For counts of potential retirees by job title, see <[count_by_title.csv](Analysis/count_by_title.csv)>.
-- For a table of potentital retires sorted by job title, see <[emp_by_title.csv](Analysis/emp_by_title.csv)>.
+- For a table of potential retirees sorted by job title, see <[emp_by_title.csv](Analysis/emp_by_title.csv)>.
 - January 2000 is the most recent month and year included in hiring records. In that year (for which there are only records available in January), 13 employees were hired.
 - If mentors are required to be 54-55 years-old (birthdates between 1965-12-31 and 1965-01-01) and have had to work 31-35 years for the company (hire dates between 1988-12-31 and 1985-01-01), then the number of individuals available for mentorship roles is 691.
 - For a table of potential mentors sorted by job title, see <[mentor_emp.csv](Analysis/mentor_emp.csv)>. 
 
 The analysis is limited because data for hire dates and salaries are not up-to-date. The number of individuals being hired currently (at the time of this report) cannot be determined from the database because the latest hire dates on record are from January 2000. Also, even though dept_manager.csv, dept_emp.csv, and titles.csv are up-to-date as evidenced by '9999-01-01' entries in the "to_date" column, there is no salary data on record after 2001-01-31. Salary data is only available for the year after an employee's hire date. Thus, employees who have changed departments, who have been promoted to senior positions, or who have gained salary promotions due to increased years of service would have different salaries than what is recorded in salaries.csv.
 
-Recommendations for further analysis include the following:
+Recommendations for further analysis are as follows:
 - Determine if current department managers are potential retirees. If they are, determine which are eligible for mentorship roles.
 - Create a table of potential future department managers based on a filter criterion of number of years worked in a department. After an additional selection process, these employees could be paired with retiring managers for mentorship. 
 - Determine number of potential retirees grouped by department so that Pewlett Hackard can anticipate the number of employees to hire per department. 
