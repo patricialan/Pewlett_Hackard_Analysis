@@ -47,23 +47,23 @@ ORDER BY ce.emp_no;
 
 -- 1F. Partition the data to show only most recent title per employee
 SELECT emp_no,
- first_name,
- last_name,
- title,
- from_date,
- salary
+    first_name,
+    last_name,
+    title,
+    from_date,
+    salary
 INTO recentTitle_emp
 FROM
- (SELECT emp_no,
- first_name,
- last_name,
- title,
- from_date,
- salary, ROW_NUMBER() OVER
- (PARTITION BY (emp_no)
- ORDER BY from_date DESC) rn
- FROM title_emp
- ) tmp WHERE rn = 1
+    (SELECT emp_no,
+    first_name,
+    last_name,
+    title,
+    from_date,
+    salary, ROW_NUMBER() OVER
+    (PARTITION BY (emp_no)
+    ORDER BY from_date DESC) rn
+    FROM title_emp
+    ) tmp WHERE rn = 1
 ORDER BY title;
 
 -- 1G. Create table: # retirees by title
@@ -145,23 +145,23 @@ ORDER BY e.emp_no;
 
 -- 3B. Create table: employees eligible to be mentors (specific birthdate range) & discard duplicates (keep most recent title)
 SELECT emp_no,
- first_name,
- last_name,
- title,
- from_date,
- to_date
+    first_name,
+    last_name,
+    title,
+    from_date,
+    to_date
 INTO mentor_emp
 FROM
- (SELECT emp_no,
- first_name,
- last_name,
- title,
- from_date,
- to_date, ROW_NUMBER() OVER
- (PARTITION BY (emp_no)
- ORDER BY to_date DESC) rn
- FROM duplicates_mentor_emp
- ) tmp WHERE rn = 1
+    (SELECT emp_no,
+    first_name,
+    last_name,
+    title,
+    from_date,
+    to_date, ROW_NUMBER() OVER
+    (PARTITION BY (emp_no)
+    ORDER BY to_date DESC) rn
+    FROM duplicates_mentor_emp
+    ) tmp WHERE rn = 1
 ORDER BY emp_no;
 
 ---------------------------------------------------------------------------------
@@ -171,9 +171,9 @@ ORDER BY emp_no;
 -- Current managers of each department
 SELECT d.dept_no,
 	d.dept_name,
-     dm.emp_no,
-     dm.from_date,
-     dm.to_date
+    dm.emp_no,
+    dm.from_date,
+    dm.to_date
 FROM departments as d
 INNER JOIN dept_manager as dm
 ON d.dept_no = dm.dept_no
@@ -183,9 +183,9 @@ ORDER BY emp_no;
 -- Current managers of each department who are potential retirees
 SELECT d.dept_no,
 	d.dept_name,
-     dm.emp_no,
-     dm.from_date,
-     dm.to_date
+    dm.emp_no,
+    dm.from_date,
+    dm.to_date
 FROM departments as d
 INNER JOIN dept_manager as dm
 ON d.dept_no = dm.dept_no
@@ -198,9 +198,9 @@ ORDER BY emp_no;
 
 -- Joining tables departments and dept_manager using aliases
 SELECT d.dept_name,
-     dm.emp_no,
-     dm.from_date,
-     dm.to_date
+    dm.emp_no,
+    dm.from_date,
+    dm.to_date
 FROM departments as d
 INNER JOIN dept_manager as dm
 ON d.dept_no = dm.dept_no;
@@ -232,19 +232,19 @@ WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
     AND (de.to_date = '9999-01-01');
 
 -- Create table of retiring managers by department
-SELECT  dm.dept_no,
-        d.dept_name,
-        dm.emp_no,
-        ce.last_name,
-        ce.first_name,
-        dm.from_date,
-        dm.to_date
+SELECT dm.dept_no,
+    d.dept_name,
+    dm.emp_no,
+    ce.last_name,
+    ce.first_name,
+    dm.from_date,
+    dm.to_date
 INTO manager_info
 FROM dept_manager AS dm
-    INNER JOIN departments AS d
-        ON (dm.dept_no = d.dept_no)
-    INNER JOIN current_emp AS ce
-        ON (dm.emp_no = ce.emp_no);
+INNER JOIN departments AS d
+ON (dm.dept_no = d.dept_no)
+INNER JOIN current_emp AS ce
+ON (dm.emp_no = ce.emp_no);
 
 -- Create table of retirees by department
 SELECT ce.emp_no,
@@ -284,5 +284,5 @@ ON (ce.emp_no = de.emp_no)
 INNER JOIN departments AS d
 ON (de.dept_no = d.dept_no)
 WHERE de.dept_no IN ('d007', 'd005')
-    AND d.dept_name IN ('Sales', 'Development')
+AND d.dept_name IN ('Sales', 'Development')
 ORDER BY d.dept_name;
