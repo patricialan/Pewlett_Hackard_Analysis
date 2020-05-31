@@ -198,7 +198,7 @@ emp_no,first_name,last_name,title,from_date,to_date
 233818,Kellie,Heydon,Senior Engineer,1991-11-11,9999-01-01
 234739,Foong,Aamodt,Senior Engineer,1986-06-28,9999-01-01
 235368,Anneli,Joslin,Senior Engineer,1987-04-12,9999-01-01
-240236,True,Tischendorf,Senior Engineer,1992-01-19,9999-01-01
+240236,TRUE,Tischendorf,Senior Engineer,1992-01-19,9999-01-01
 240340,Mack,Staylopatis,Senior Engineer,1991-04-02,9999-01-01
 241254,Jagoda,Anguita,Senior Engineer,1993-05-11,9999-01-01
 241567,Emran,Miara,Senior Engineer,1995-05-02,9999-01-01
