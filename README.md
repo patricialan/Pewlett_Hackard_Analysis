@@ -1,4 +1,4 @@
-# Pewlett Hackard Analysis
+# Retiring Employees Analysis
 
 ## Overview
 The purpose of this project was to determine the number of Pewlett Hackard employees that were close to retirement so that the company can prepare to hire and train new employees. The problem was addressed by creating a Postgres database and querying the database using structured query language (SQL). 
